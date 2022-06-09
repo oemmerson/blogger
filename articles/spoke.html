@@ -40,7 +40,7 @@ passwords to regenerate the exchanged chunks.</p>
 <p>The exchange must therefore seem random, but it is determined - so that both
 parties can finally agree on a strong shared key. Then, from the latter, a
 protocol can be established using a symmetric cryptographic method such as
-<a href="https://perdu.com">GCM</a> or <a href="https://perdu.com">ChaCha20 Poly1305</a>.</p>
+<a href="https://en.wikipedia.org/wiki/Galois/Counter_Mode">GCM</a> or <a href="https://www.rfc-editor.org/rfc/rfc7539.html">ChaCha20 Poly1305</a>.</p>
 <hr />
 <p><strong>Disclaimer</strong>: All the code in this article is for illustrative purposes, a
 copy/paste will probably not work and I have deliberately omitted some details
@@ -808,7 +808,7 @@ forever), but only experience (as far as a craft job is concerned) counts :) !</
 <p>For a MirageOS project, one of the constraints we have regarding the ecosystem
 is to respect certain interfaces in order to compose our implementation with
 other projects. As far as protocols are concerned, a fairly common interface is
-<a href="https://perdu.com">Mirage_flow.S</a>. It describes what can be seen as a way to
+<a href="https://github.com/mirage/mirage-flow">Mirage_flow.S</a>. It describes what can be seen as a way to
 communicate with arbitrary content with a peer.</p>
 <p>Our last objective is to propose, like <a href="https://github.com/mirleft/ocaml-tls">ocaml-tls</a>, an
 implementation that respects this interface so that it can be used to implement
@@ -944,7 +944,7 @@ let decrypt (State { key; nonce; impl= (module Cipher_block); }) sequence buf =
 <h3>From a <code>Flow.flow</code> to our flow</h3>
 <p>Finally, we can define our flow type which will contain the states of our
 ciphers and ring-buffers. You can observe several times the use of <a href="https://github.com/mirage/ke">ke</a>, a
-library that implements a ring-buffer <a href="https://perdu.com">à la Xen</a>. The latter
+library that implements a ring-buffer <a href="http://xenbits.xen.org/docs/4.6-testing/misc/xenstore-ring.txt">à la Xen</a>. The latter
 will serve as an intermediate buffer between encryption and decryption, it will
 make us 2 since, as we said, the algorithm may not be the same between the
 client and the server (depending on the direction).</p>
@@ -1080,7 +1080,7 @@ let write flow data =
 
 let close flow = Flow.close flow.flow
 </code></pre>
-<p>That's it! We finally have a <a href="https://perdu.com">Mirage_flow.S</a> protocol that uses
+<p>That's it! We finally have a <a href="https://github.com/mirage/mirage-flow">Mirage_flow.S</a> protocol that uses
 our <em>handshake</em> and then uses symmetric encryption from a key shared with a
 peer.</p>
 <p>More concretely, the idea of TLS is quite similar except that what is common
