@@ -119,7 +119,7 @@ let xor str0 str1 =
 }
 
 #define Bytes_off(buf, off) ((uint8_t*) Bytes_val (buf) + Long_val (off))
-#define String_off(str, off) ((uint8_t*) Bytes_val (str) + Long_val (off))
+#define String_off(str, off) ((uint8_t*) String_val (str) + Long_val (off))
 
 CAMLprim value
 caml_xor_into (value src, value src_off, value dst, value dst_off, value len) {
