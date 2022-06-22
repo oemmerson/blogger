@@ -9,7 +9,7 @@ let images_target target = "images" |> into target
 let template file = add_extension file "html" |> into "templates"
 let article_template = template "article"
 let layout_template = template "layout"
-let list_template = template "list_articles"
+let articles_template = template "articles"
 let article_target file target = Model.article_path file |> into target
 let binary_update = Build.watch Sys.argv.(0)
 let index_html target = "index.html" |> into target
@@ -102,7 +102,7 @@ let generate_index target =
     >>> Markup.content_to_html ()
     >>> articles_arrow
     >>^ merge_with_page
-    >>> Template.apply_as_template (module Model.Articles) list_template
+    >>> Template.apply_as_template (module Model.Articles) articles_template
     >>> Template.apply_as_template (module Model.Articles) layout_template
     >>^ Stdlib.snd)
 ;;
