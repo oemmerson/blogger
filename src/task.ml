@@ -9,11 +9,14 @@ let images_target target = "images" |> into target
 let template file = add_extension file "html" |> into "templates"
 let article_template = template "article"
 let layout_template = template "layout"
+let index_template = template "index"
 let articles_template = template "articles"
 let article_target file target = Model.article_path file |> into target
 let binary_update = Build.watch Sys.argv.(0)
 let index_html target = "index.html" |> into target
 let index_md = "index.md" |> into "pages"
+let articles_html target = "articles.html" |> into target
+let articles_md = "articles.md" |> into "pages"
 let rss_feed target = "feed.xml" |> into target
 let tag_file tag target = Model.tag_path tag |> into target
 let tag_template = template "tag"
@@ -99,6 +102,23 @@ let generate_index target =
     (index_html target)
     (binary_update
     >>> Metaformat.read_file_with_metadata (module Metadata.Page) index_md
+    >>> Markup.content_to_html ()
+    >>> articles_arrow
+    >>^ merge_with_page
+    >>> Template.apply_as_template (module Model.Articles) index_template
+    >>> Template.apply_as_template (module Model.Articles) layout_template
+    >>^ Stdlib.snd)
+;;
+
+let generate_articles target =
+  let open Build in
+  let* articles_arrow =
+    Collection.Articles.get_all (module Metaformat) "articles"
+  in
+  create_file
+    (articles_html target)
+    (binary_update
+    >>> Metaformat.read_file_with_metadata (module Metadata.Page) articles_md
     >>> Markup.content_to_html ()
     >>> articles_arrow
     >>^ merge_with_page

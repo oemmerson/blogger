@@ -11,6 +11,7 @@ let program ~target =
   let* () = Task.process_articles target in
   let* () = Task.generate_feed target in
   let* () = Task.generate_tags target in
+  let* () = Task.generate_articles target in
   Task.generate_index target
 ;;
 

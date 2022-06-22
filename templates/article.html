@@ -1,13 +1,12 @@
-<a href="/index.html">Back to index</a>
-
 <article>
-    <h1>{{ metadata.title }}</h1>
-    <ul class="tags-list">
-        {%- for tag in tags -%}
-        <li><a href="/tags/{{ tag }}.html">{{ tag }}</a></li>
-        {%- endfor -%}
-    </ul>
-    {%- autoescape false -%}
-    {{ body }}
-    {% endautoescape -%}
+  <h1>{{ metadata.title }}</h1>
+  <p class="meta">Written by {{ author.name }} on {{ date.canonical }}</p>
+  <ul class="tags-list">
+    {%- for tag in tags -%}
+    <li><a href="{{ root }}/tags/{{ tag }}.html">{{ tag }}</a></li>
+    {%- endfor -%}
+  </ul>
+  {%- autoescape false -%}
+  {{ body }}
+  {% endautoescape -%}
 </article>
