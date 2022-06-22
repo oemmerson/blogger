@@ -38,9 +38,9 @@ module Author = struct
 
   let default_user =
     make
-      "dinosaure"
-      "https://blog.osau.re/"
-      "romain.calascibetta@gmail.com"
+      "Guillaume Petiot"
+      "https://callmegi.com/"
+      "guillaume@tarides.com"
       None
   ;;
 
