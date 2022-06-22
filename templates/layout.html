@@ -13,7 +13,7 @@
 {%- elseif description -%}
 {%- set page_description = description -%}
 {%- else -%}
-{%- set page_description = "blog.osau.re" -%}
+{%- set page_description = "Call me Gi -- Guillaume Petiot's website" -%}
 {%- endif -%}
 <!doctype html>
 <html lang="en">
@@ -22,7 +22,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        Dinosaure's website{{ dash }}{{ page_title }}
+      {{ page_title }}{{ dash }}Call me Gi
     </title>
     <meta name="description" content="{{ page_description }}">
     <link type="text/css" rel="stylesheet" href="{{ root }}/css/hl.css">
@@ -32,19 +32,19 @@
   </head>
   <body>
     <header>
-      <h1>blog.osau.re</h1>
-      <blockquote>
-	<strong>MirageOS</strong> and <strong>OCaml</strong> stuffs.
-      </blockquote>
+      <nav>
+        <ul>
+          <li><a href="{{ root }}/index.html">Home</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-        {%- autoescape false -%}
-        {{ body }}
-        {% endautoescape -%}
+      {%- autoescape false -%}
+      {{ body }}
+      {% endautoescape -%}
     </main>
     <footer>
-        <a href="https://github.com/xhtmlboi/yocaml">Powered by <strong>YOCaml</strong></a>
-        <br />
+      Powered by <a href="https://github.com/xhtmlboi/yocaml">YOCaml</a>
     </footer>
     <script>hljs.highlightAll();</script>
   </body>
