@@ -259,16 +259,11 @@ let setup_logs =
   Cmdliner.Term.(const setup_logs $ utf_8 $ renderer $ verbosity)
 ;;
 
-let man =
-  let open Cmdliner in
-  [ `S Manpage.s_authors; `P "blog.osau.re" ]
-;;
-
 let build_cmd =
   let open Cmdliner in
   let doc = Format.asprintf "Build the blog into the specified directory" in
   let exits = Cmd.Exit.defaults in
-  let info = Cmd.info "build" ~version ~doc ~exits ~man in
+  let info = Cmd.info "build" ~version ~doc ~exits in
   let path_arg =
     let doc =
       Format.asprintf
@@ -305,7 +300,7 @@ let watch_cmd =
     let arg = Arg.info ~doc [ "port"; "P"; "p" ] in
     Arg.(value & opt (some int) None & arg)
   in
-  let info = Cmd.info "watch" ~version ~doc ~exits ~man in
+  let info = Cmd.info "watch" ~version ~doc ~exits in
   Cmd.v info Term.(const watch $ setup_logs $ path_arg $ port_arg)
 ;;
 
@@ -372,7 +367,7 @@ let push_cmd =
     in
     Arg.(value & opt (some (conv (of_string, Uri.pp))) None & arg)
   in
-  let info = Cmd.info "push" ~version ~doc ~exits ~man in
+  let info = Cmd.info "push" ~version ~doc ~exits in
   Cmd.v
     info
     Term.(
@@ -390,7 +385,7 @@ let cmd =
   let open Cmdliner in
   let sdocs = Manpage.s_common_options in
   let doc = "Build, push or serve my personal website" in
-  let default_info = Cmd.info caller ~version ~doc ~sdocs ~man in
+  let default_info = Cmd.info caller ~version ~doc ~sdocs in
   let default = Term.(ret (const (`Help (`Pager, None)))) in
   Cmd.group ~default default_info [ build_cmd; watch_cmd; push_cmd ]
 ;;
