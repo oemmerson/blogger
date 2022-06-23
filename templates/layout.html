@@ -13,7 +13,7 @@
 {%- elseif description -%}
 {%- set page_description = description -%}
 {%- else -%}
-{%- set page_description = "Call me Gi -- Guillaume Petiot's website" -%}
+{%- set page_description = site.description -%}
 {%- endif -%}
 <!doctype html>
 <html lang="en">
@@ -22,13 +22,15 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-      {{ page_title }}{{ dash }}Call me Gi
+      {{ page_title }}{{ dash }}{{ site.title }}
     </title>
     <meta name="description" content="{{ page_description }}">
     <link type="text/css" rel="stylesheet" href="{{ root }}/css/hl.css">
     <link type="text/css" rel="stylesheet" href="{{ root }}/css/style.css">
     <script src="{{ root }}/js/hl.js"></script>
-    <link rel="alternate" type="application/rss+xml" href="{{ root }}/feed.xml" title="callmegi.com">
+    <link
+      rel="alternate" type="application/rss+xml" href="{{ root }}/feed.xml"
+      title="{{ site.domain }}">
   </head>
   <body>
     <header>

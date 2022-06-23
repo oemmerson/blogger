@@ -60,7 +60,13 @@ let process_articles target =
 let merge_with_page ((meta, content), articles) =
   let title = Metadata.Page.title meta in
   let description = Metadata.Page.description meta in
-  Model.Articles.make ?title ?description articles, content
+  let site =
+    Model.Site.make
+      ~domain:"Site.domain"
+      ~title:"Site.title"
+      ~description:"Site.description"
+  in
+  Model.Articles.make ?title ?description articles site, content
 ;;
 
 let generate_feed target =

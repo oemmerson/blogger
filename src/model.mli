@@ -29,6 +29,14 @@ module Tag : sig
   include Metadata.INJECTABLE with type t := t
 end
 
+module Site : sig
+  type t
+
+  val make : domain:string -> title:string -> description:string -> t
+
+  include Metadata.INJECTABLE with type t := t
+end
+
 module Articles : sig
   type t
 
@@ -36,6 +44,7 @@ module Articles : sig
     :  ?title:string
     -> ?description:string
     -> (Article.t * string) list
+    -> Site.t
     -> t
 
   val sort

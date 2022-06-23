@@ -220,14 +220,39 @@ module Article = struct
   let compare_by_date a b = Date.compare a.date b.date
 end
 
+module Site = struct
+  type t =
+    { domain : string
+    ; title : string
+    ; description : string
+    }
+
+  let make ~domain ~title ~description = { domain; title; description }
+
+  let inject
+      (type a)
+      (module D : Key_value.DESCRIBABLE with type t = a)
+      { domain; title; description }
+    =
+    [ "domain", D.string domain
+    ; "title", D.string title
+    ; "description", D.string description
+    ]
+  ;;
+end
+
 module Articles = struct
   type t =
     { articles : (Article.t * string) list
     ; title : string option
     ; description : string option
+    ; site : Site.t
     }
 
-  let make ?title ?description articles = { articles; title; description }
+  let make ?title ?description articles site =
+    { articles; title; description; site }
+  ;;
+
   let title p = p.title
   let description p = p.description
   let articles p = p.articles
@@ -252,7 +277,7 @@ module Articles = struct
   let inject
       (type a)
       (module D : Key_value.DESCRIBABLE with type t = a)
-      { articles; title; description }
+      { articles; title; description; site }
     =
     ( "articles"
     , D.list
@@ -262,6 +287,7 @@ module Articles = struct
                (("url", D.string url) :: Article.inject (module D) article))
            articles) )
     :: ("root", D.string ".")
+    :: ("site", D.object_ (Site.inject (module D) site))
     :: (Metadata.Page.inject (module D) $ Metadata.Page.make title description)
   ;;
 end
