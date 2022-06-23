@@ -1,17 +1,17 @@
 body {
   margin: 0;
   padding: 0 5em;
-  background-color: #333;
-  color: #dde;
-  font-family: serif;
-  font-size: 1.3em;
+  background-color: #282c34;
+  color: #fff;
+  font-family: Helvetica;
+  font-size: 1.5em;
 }
 
 header {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Helvetica;
+  font-family: sans-serif;
 }
 
 h1 {
@@ -50,8 +50,15 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   color: #fff;
-  margin: 12px 14px;
+  margin: 12px 7px;
+  padding: 14px;
   border: 0;
+}
+
+nav a:hover {
+  background-color: #222;
+  border-radius: 16px;
+  text-decoration: none;
 }
 
 main {
@@ -63,10 +70,11 @@ a {
   color: #26d5ff;
   text-decoration: none;
   padding-bottom: 2px;
-  border-bottom: 1px solid #26d5ff;
 }
 
 a:hover {
+  color: #48f7ff;
+  text-decoration: underline;
 }
 
 .side a {
@@ -167,7 +175,7 @@ article pre {
   line-height: 100%;
   width: 100%;
   overflow-x: auto;
-  background-color: #111;
+  background-color: #000;
   border-radius: 16px;
 }
 
@@ -222,10 +230,6 @@ article .tags-list {
 .tags-list > li::before {
   content: "#";
   margin-right: 2px;
-}
-
-.tags-list > li > a {
-  text-decoration: none;
 }
 
 @media screen and (max-width: 720px) {
