@@ -94,6 +94,7 @@ footer a {
 
 article .meta {
   color: #a3a1a8;
+  margin-top: 0;
 }
 
 .list-articles {
@@ -130,7 +131,8 @@ article .meta {
 
 .list-articles > li > div.content > span.date {
   color: #a3a1a8;
-  margin-right: 7px;
+  margin-left: 7px;
+  font-family: Courier;
 }
 
 .list-articles > li > div.content > p {
