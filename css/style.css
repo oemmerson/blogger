@@ -67,14 +67,12 @@ main {
 }
 
 a {
-  color: #26d5ff;
-  text-decoration: none;
+  color: #26ffd5;
   padding-bottom: 2px;
 }
 
 a:hover {
   color: #48f7ff;
-  text-decoration: underline;
 }
 
 .side a {
@@ -127,6 +125,7 @@ article .meta {
 
 .list-articles .content > a {
   font-weight: bolder;
+  text-decoration: none;
 }
 
 .list-articles > li > div.content > span.date {
@@ -147,7 +146,7 @@ article .meta {
   align-items: center;
 }
 
-article h1 {
+article > h1 {
   margin-bottom: 0;
 }
 
@@ -220,20 +219,21 @@ article code {
   margin: 0;
 }
 
+.tags-list a {
+  text-decoration: none;
+  background-color: #222;
+  border-radius: 16px;
+  padding: 14px;
+}
+
 article .tags-list {
   margin-bottom: 32px;
 }
 
 .tags-list > li {
   display: inline-block;
-  margin: 2px;
   padding: 2px 8px;
   font-size: 0.8em;
-}
-
-.tags-list > li::before {
-  content: "#";
-  margin-right: 2px;
 }
 
 @media screen and (max-width: 720px) {
