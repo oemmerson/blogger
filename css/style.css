@@ -75,6 +75,10 @@ a:hover {
   color: #48f7ff;
 }
 
+.side {
+  display: none;
+}
+
 .side a {
   border: 0;
 }
