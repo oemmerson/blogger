@@ -83,16 +83,24 @@ a:hover {
 }
 
 footer {
-  width: 100%;
+  width: 70%;
+  margin: 40px auto 0 auto;
   padding-top: 32px;
   text-align: center;
-  font-size: .8em;
+  font-size: .9em;
   color: #777;
 }
 
-footer a {
-  text-decoration: none;
-  color: #777;
+footer ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: inline-block;
+}
+
+footer li {
+  float: left;
+  margin-right: 40px;
 }
 
 article .meta {
