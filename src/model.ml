@@ -37,11 +37,7 @@ module Author = struct
   ;;
 
   let default_user =
-    make
-      "Guillaume Petiot"
-      "https://callmegi.com/"
-      "guillaume@tarides.com"
-      None
+    make Conf.Author.name Conf.Site.domain Conf.Author.email None
   ;;
 
   let gravatar email =

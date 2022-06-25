@@ -1,6 +1,6 @@
 open Yocaml
 
-let domain = "https:/callmegi.com"
+let domain = Conf.Rss.link
 let feed_url = into domain "feed.xml"
 
 let articles_to_items articles =
@@ -12,11 +12,11 @@ let articles_to_items articles =
 
 let make ((), articles) =
   Yocaml.Rss.Channel.make
-    ~title:"callmegi.com"
+    ~title:Conf.Rss.title
     ~link:domain
     ~feed_link:feed_url
-    ~description:"Articles about what I learn and what I build"
-    ~generator:"yocaml"
-    ~webmaster:"guillaume@tarides.com"
+    ~description:Conf.Rss.description
+    ~generator:Conf.Rss.generator
+    ~webmaster:Conf.Author.email
     (articles_to_items articles)
 ;;

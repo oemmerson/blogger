@@ -62,9 +62,9 @@ let merge_with_page ((meta, content), articles) =
   let description = Metadata.Page.description meta in
   let site =
     Model.Site.make
-      ~domain:"Site.domain"
-      ~title:"Site.title"
-      ~description:"Site.description"
+      ~domain:Conf.Site.domain
+      ~title:Conf.Site.title
+      ~description:Conf.Site.description
   in
   Model.Articles.make ?title ?description articles site, content
 ;;
