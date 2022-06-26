@@ -11,7 +11,7 @@ end
 
 module Rss = struct
   let title = Site.title
-  let link = Site.domain
+  let link = "https://" ^ Site.domain
   let description = ""
   let generator = "yocaml"
 end
