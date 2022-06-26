@@ -1,6 +1,7 @@
 body {
-  margin: 0;
-  padding: 0 5em;
+  margin: 0 auto;
+  padding: 0 1em;
+  max-width: 900px;
   background-color: #282c34;
   color: #fff;
   font-family: Helvetica;

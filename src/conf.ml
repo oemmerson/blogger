@@ -1,6 +1,6 @@
 module Site = struct
-  let domain = "https://callmegi.com"
-  let title = "Call me Gi"
+  let domain = "guillaumepetiot.com"
+  let title = "Guillaume Petiot"
   let description = ""
 end
 
