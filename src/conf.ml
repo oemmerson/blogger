@@ -6,7 +6,7 @@ end
 
 module Author = struct
   let name = "Guillaume Petiot"
-  let email = "guillaume@tarides.com"
+  let email = "hello@guillaumepetiot.com"
 end
 
 module Rss = struct
