@@ -2,7 +2,7 @@
 description: home
 ---
 
-# Hey I'm Guillaume
+# Hey, I'm Guillaume
 
 I'm a software engineer involved in the open-source OCaml ecosystem at [Tarides](http://www.tarides.com).
 
