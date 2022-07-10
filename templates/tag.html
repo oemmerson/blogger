@@ -1,4 +1,4 @@
-<h1>Articles</h1>
+<h1>Blog Posts</h1>
 
 <ul class="tags-list aeration">
   {%- for tag in tags -%}
@@ -9,7 +9,7 @@
 </ul>
 
 <ol reversed class="list-articles">
-  {%- for article in articles -%}
+  {%- for article in blog -%}
   <li>
     <div class="side">
       <a href="{{ article.author.link }}">

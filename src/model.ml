@@ -2,7 +2,7 @@ open Yocaml
 
 let article_path file =
   let filename = basename $ replace_extension file "html" in
-  filename |> into "articles"
+  filename |> into "blog"
 ;;
 
 let tag_path tag = add_extension tag "html" |> into "tags"
@@ -275,7 +275,7 @@ module Articles = struct
       (module D : Key_value.DESCRIBABLE with type t = a)
       { articles; title; description; site }
     =
-    ( "articles"
+    ( "blog"
     , D.list
         (List.map
            (fun (article, url) ->
@@ -316,7 +316,7 @@ module Tag = struct
     =
     ("tag", D.string tag)
     :: ("root", D.string "..")
-    :: ("articles", D.list (List.map (article_object (module D)) articles))
+    :: ("blog", D.list (List.map (article_object (module D)) articles))
     :: ( "tags"
        , D.list
            (List.map
