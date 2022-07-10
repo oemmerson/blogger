@@ -1,7 +1,7 @@
 ---
-date: 2022-06-26
+date: 2022-06-26 20:00:00 GMT
 article.title: A simple blog with OCaml
-article.description: Under the hood of this website.
+article.description: What is under the hood?
 tags:
   - Blog
   - OCaml
