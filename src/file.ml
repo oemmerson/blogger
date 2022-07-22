@@ -2,6 +2,7 @@ open Yocaml
 
 let is_css = with_extension "css"
 let is_javascript = with_extension "js"
+let is_pdf = with_extension "pdf"
 
 let is_image =
   let open Preface.Predicate in

@@ -8,6 +8,7 @@ let program ~target =
   let* () = Task.move_javascript target in
   let* () = Task.move_css target in
   let* () = Task.move_images target in
+  let* () = Task.move_pdf target in
   let* () = Task.process_posts target in
   let* () = Task.generate_feed target in
   let* () = Task.generate_tags target in

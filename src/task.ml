@@ -4,6 +4,7 @@ module Markup = Yocaml_markdown
 module Template = Yocaml_jingoo
 
 let css_target target = "css" |> into target
+let pub_target target = "pub" |> into target
 let javascript_target target = "js" |> into target
 let images_target target = "images" |> into target
 let template file = add_extension file "html" |> into "templates"
@@ -37,6 +38,13 @@ let move_images target =
     [ "images" ]
     File.is_image
     (Build.copy_file ~into:(images_target target))
+;;
+
+let move_pdf target =
+  process_files
+    [ "pub" ]
+    File.is_pdf
+    (Build.copy_file ~into:(pub_target target))
 ;;
 
 let process_posts target =
