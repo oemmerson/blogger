@@ -9,12 +9,9 @@ let images_target target = "images" |> into target
 let template file = add_extension file "html" |> into "templates"
 let post_template = template "post"
 let layout_template = template "layout"
-let index_template = template "index"
 let blog_template = template "blog"
 let post_target file target = Model.article_path file |> into target
 let binary_update = Build.watch Sys.argv.(0)
-let index_html target = "index.html" |> into target
-let index_md = "index.md" |> into "pages"
 let blog_html target = "blog.html" |> into target
 let blog_md = "blog.md" |> into "pages"
 let rss_feed target = "feed.xml" |> into target
@@ -55,7 +52,7 @@ let process_posts target =
       >>^ Stdlib.snd))
 ;;
 
-let merge_with_page ((meta, content), posts) =
+let merge_posts_with_page ((meta, content), posts) =
   let title = Metadata.Page.title meta in
   let description = Metadata.Page.description meta in
   let site =
@@ -65,6 +62,18 @@ let merge_with_page ((meta, content), posts) =
       ~description:Conf.Site.description
   in
   Model.Articles.make ?title ?description posts site, content
+;;
+
+let merge_with_page (meta, content) =
+  let title = Metadata.Page.title meta in
+  let description = Metadata.Page.description meta in
+  let site =
+    Model.Site.make
+      ~domain:Conf.Site.domain
+      ~title:Conf.Site.title
+      ~description:Conf.Site.description
+  in
+  Model.Page.make ?title ?description site, content
 ;;
 
 let generate_feed target =
@@ -95,21 +104,6 @@ let generate_tags target =
     tags
 ;;
 
-let generate_index target =
-  let open Build in
-  let* posts_arrow = Collection.Articles.get_all (module Metaformat) "blog" in
-  create_file
-    (index_html target)
-    (binary_update
-    >>> Metaformat.read_file_with_metadata (module Metadata.Page) index_md
-    >>> Markup.content_to_html ()
-    >>> posts_arrow
-    >>^ merge_with_page
-    >>> Template.apply_as_template (module Model.Articles) index_template
-    >>> Template.apply_as_template (module Model.Articles) layout_template
-    >>^ Stdlib.snd)
-;;
-
 let generate_posts target =
   let open Build in
   let* articles_arrow =
@@ -121,8 +115,28 @@ let generate_posts target =
     >>> Metaformat.read_file_with_metadata (module Metadata.Page) blog_md
     >>> Markup.content_to_html ()
     >>> articles_arrow
-    >>^ merge_with_page
+    >>^ merge_posts_with_page
     >>> Template.apply_as_template (module Model.Articles) blog_template
     >>> Template.apply_as_template (module Model.Articles) layout_template
     >>^ Stdlib.snd)
+;;
+
+let generate_pages target =
+  let open Build in
+  process_files
+    [ "pages/" ]
+    (function
+     | "blog.md" | "tags.md" -> false
+     | x -> File.is_markdown x)
+    (fun file ->
+      let fname = basename file in
+      let html = replace_extension fname "html" |> into target in
+      create_file
+        html
+        (binary_update
+        >>> Metaformat.read_file_with_metadata (module Metadata.Page) file
+        >>> Markup.content_to_html ()
+        >>^ merge_with_page
+        >>> Template.apply_as_template (module Model.Page) layout_template
+        >>^ Stdlib.snd))
 ;;

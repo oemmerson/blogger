@@ -327,3 +327,25 @@ module Tag = struct
     :: (Metadata.Page.inject (module D) $ Metadata.Page.make title description)
   ;;
 end
+
+module Page = struct
+  type t =
+    { title : string option
+    ; description : string option
+    ; site : Site.t
+    }
+
+  let make ?title ?description site = { title; description; site }
+  let title p = p.title
+  let description p = p.description
+
+  let inject
+    (type a)
+    (module D : Key_value.DESCRIBABLE with type t = a)
+    { title; description; site }
+    =
+    ("root", D.string ".")
+    :: ("site", D.object_ (Site.inject (module D) site))
+    :: (Metadata.Page.inject (module D) $ Metadata.Page.make title description)
+  ;;
+end

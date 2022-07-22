@@ -62,3 +62,13 @@ module Articles : sig
 
   include Metadata.INJECTABLE with type t := t
 end
+
+module Page : sig
+  type t
+
+  val make : ?title:string -> ?description:string -> Site.t -> t
+  val title : t -> string option
+  val description : t -> string option
+
+  include Metadata.INJECTABLE with type t := t
+end

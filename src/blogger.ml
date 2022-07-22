@@ -12,7 +12,7 @@ let program ~target =
   let* () = Task.generate_feed target in
   let* () = Task.generate_tags target in
   let* () = Task.generate_posts target in
-  Task.generate_index target
+  Task.generate_pages target
 ;;
 
 let local_build _quiet target =
