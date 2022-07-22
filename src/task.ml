@@ -44,17 +44,15 @@ let move_images target =
 
 let process_posts target =
   process_files [ "blog" ] File.is_markdown (fun file ->
-      let open Build in
-      create_file
-        (post_target file target)
-        (binary_update
-        >>> Metaformat.read_file_with_metadata
-              (module Model.Article)
-              file
-        >>> Markup.content_to_html ()
-        >>> Template.apply_as_template (module Model.Article) post_template
-        >>> Template.apply_as_template (module Model.Article) layout_template
-        >>^ Stdlib.snd))
+    let open Build in
+    create_file
+      (post_target file target)
+      (binary_update
+      >>> Metaformat.read_file_with_metadata (module Model.Article) file
+      >>> Markup.content_to_html ()
+      >>> Template.apply_as_template (module Model.Article) post_template
+      >>> Template.apply_as_template (module Model.Article) layout_template
+      >>^ Stdlib.snd))
 ;;
 
 let merge_with_page ((meta, content), posts) =
@@ -71,9 +69,7 @@ let merge_with_page ((meta, content), posts) =
 
 let generate_feed target =
   let open Build in
-  let* posts_arrow =
-    Collection.Articles.get_all (module Metaformat) "blog"
-  in
+  let* posts_arrow = Collection.Articles.get_all (module Metaformat) "blog" in
   create_file
     (rss_feed target)
     (binary_update >>> posts_arrow >>^ Feed.make >>^ Rss.Channel.to_rss)
@@ -101,9 +97,7 @@ let generate_tags target =
 
 let generate_index target =
   let open Build in
-  let* posts_arrow =
-    Collection.Articles.get_all (module Metaformat) "blog"
-  in
+  let* posts_arrow = Collection.Articles.get_all (module Metaformat) "blog" in
   create_file
     (index_html target)
     (binary_update

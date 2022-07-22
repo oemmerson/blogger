@@ -129,9 +129,10 @@ let unix_ctx_with_ssh () =
   |> Mimic.fold
        Smart_git.git_transmission
        Fun.[ req Smart_git.git_scheme ]
-       ~k:(function
-         | `SSH -> Lwt.return_some `Exec
-         | _ -> Lwt.return_none)
+       ~k:
+         (function
+          | `SSH -> Lwt.return_some `Exec
+          | _ -> Lwt.return_none)
   |> Mimic.fold
        ssh_edn
        Fun.
