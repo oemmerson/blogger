@@ -16,3 +16,6 @@ deps:
 
 fmt:
 	dune build @fmt --auto-promote
+
+build:
+	dune exec src/blogger.exe -- build
