@@ -3,7 +3,7 @@ body {
   padding: 0 1em;
   max-width: 700px;
   background-color: #282c34;
-  color: #fff;
+  color: #d9e4fe;
   font-family: Helvetica;
   font-size: 1.2em;
 }
@@ -48,17 +48,17 @@ nav li {
 nav a {
   text-align: center;
   text-decoration: none;
-  font-weight: bold;
-  color: #fff;
-  margin: 12px 7px;
-  padding: 14px;
+  font-weight: bolder;
+  font-size: 1.4em;
+  color: #bbb;
+  margin: 12px 15px 7px;
+  padding: 14px 10px;
   border: 0;
 }
 
 nav a:hover {
-  background-color: #222;
-  border-radius: 16px;
   text-decoration: none;
+  color: white;
 }
 
 main {
@@ -69,10 +69,13 @@ main {
 a {
   color: #26ffd5;
   padding-bottom: 2px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 a:hover {
   color: #48f7ff;
+  text-decoration: underline;
 }
 
 .side {
@@ -166,7 +169,7 @@ article > h1 {
 
 article h2 {
   font-size: 1.8em;
-  margin: 20px 0;
+  margin: 50px 0;
 }
 
 article h3 {
@@ -236,11 +239,17 @@ article code {
 .tags-list a {
   text-decoration: none;
   background-color: #222;
-  border-radius: 16px;
-  padding: 14px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+
+.tags-list a:hover {
+  border: 2px solid #777;
 }
 
 article .tags-list {
+  margin-top: 15px;
   margin-bottom: 32px;
 }
 
