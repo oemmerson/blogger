@@ -78,6 +78,29 @@ a:hover {
   text-decoration: underline;
 }
 
+img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.article .intro img {
+  max-height: 400px;
+  margin-bottom: 0;
+}
+
+.credit {
+  text-align: center;
+  color: lightslategray;
+  margin-top: 0;
+  font-style: italic;
+  font-size: small;
+}
+
+.credit a {
+  color: inherit;
+}
+
 .side {
   display: none;
 }

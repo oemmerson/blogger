@@ -7,6 +7,13 @@ tags:
   - Projects
 ---
 
+<div class="intro">
+  <img src="../images/ocamlformat-preview-released.jpg" />
+  <p class="credit">
+Photo by <a href="https://unsplash.com/@pawelskor?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Paul Skorupskas</a> on <a href="https://unsplash.com/s/photos/focus?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  </p>
+</div>
+
 TLDR: [ocamlformat-preview](https://guillaumepetiot.com/ocamlformat-preview/) is live!
 
 ## What is Ocamlformat ?
@@ -91,3 +98,9 @@ Finally, `ocamlformat-preview` iters on these options to generate the HTML, and 
 In the following weeks I will bring `ocamlformat`'s API up to speed and maybe improve the webpage a bit.
 
 I'm not sure many people will find this interesting but this was fun to make.
+
+Here is what it looks like:
+
+<img src="../images/ocamlformat-preview.jpg" />
+
+Feel free to try [ocamlformat-preview](https://guillaumepetiot.com/ocamlformat-preview/)!
