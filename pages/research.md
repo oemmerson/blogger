@@ -4,6 +4,13 @@ title: Research
 
 # Research articles and conferences
 
+<div class="intro">
+  <img src="../images/research.jpg" />
+  <p class="credit">
+Photo by <a href="https://unsplash.com/@davidkovalenkoo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">David Kovalenko</a> on <a href="https://unsplash.com/s/photos/lost-forest?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  </p>
+</div>
+
 ## Software verification
 
 - Software: Frama-C plugins
