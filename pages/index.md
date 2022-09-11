@@ -14,3 +14,4 @@ In a previous life I authored and co-authored [research papers](./research.html)
 These days I'm working on:
 - [ocamlformat](https://github.com/ocaml-ppx/ocamlformat)
 - [ocamlformat-preview](https://guillaumepetiot.com/ocamlformat-preview/)
+- [ocamljobs](https://ocamljobs.com)
