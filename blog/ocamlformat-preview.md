@@ -7,13 +7,6 @@ tags:
   - Projects
 ---
 
-<div class="intro">
-  <img src="../images/ocamlformat-preview-released.jpg" />
-  <p class="credit">
-Photo by <a href="https://unsplash.com/@pawelskor?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Paul Skorupskas</a> on <a href="https://unsplash.com/s/photos/focus?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  </p>
-</div>
-
 TLDR: [ocamlformat-preview](https://guillaumepetiot.com/ocamlformat-preview/) is live!
 
 ## What is Ocamlformat ?

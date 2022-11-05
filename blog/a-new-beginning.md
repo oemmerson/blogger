@@ -7,13 +7,6 @@ tags:
   - OCaml
 ---
 
-<div class="intro">
-  <img src="../images/new-beginning.jpg" />
-  <p class="credit">
-Photo by <a href="https://unsplash.com/es/@pkmfaris?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Faris Mohammed</a> on <a href="https://unsplash.com/s/photos/beginning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  </p>
-</div>
-
 The last time I had a blog was maybe 15 years ago, at that time I was playing with PHP and MySQL, learning the basics of databases and web development. Just enough to have a simple blog with articles and tags. Nothing too fancy. Even back then I didn't want to deal with a generic solution like WordPress, there was an appeal to develop my own thing, and learn a few things in the process.
 
 Fast forward to 2022. My interest in blogging has returned (a bit). I have been following the work of Pieter Levels, Alex West, Ben Stokes and many more for some time, and although I don't have their drive or talent, this blog is already something. I needed a place to share and document some of my projects so here I am. Don't expect too much from this blog.
