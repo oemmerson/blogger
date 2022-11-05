@@ -190,10 +190,13 @@ let build_and_push _quiet target branch author author_email remote hook =
     match hook with
     | None -> Lwt.return_unit
     | Some hook ->
-      Http_lwt_client.one_request
+      let reply _resp () _data = Lwt.return_unit in
+      Http_lwt_client.request
         ~config:(`HTTP_1_1 Httpaf.Config.default)
         ~meth:`GET
         (Uri.to_string hook)
+        reply
+        ()
       >>= (function
       | Ok (_response, _body) -> Lwt.return_unit
       | Error (`Msg err) -> failwith err)
