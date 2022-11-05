@@ -22,7 +22,7 @@ I quickly duplicated the job openings data in some database and got to work. Aft
 
 The user interface is pretty basic, the tags and the search bar are synchronised, and filter the entries according to the query. It could be improved, for the moment it doesn't try to match the job title or the job description. But that could easily be improved, and we could imagine extracting more information from the original openings (hiring process, salary range, benefits, etc.) to make a better experience for job applicants.
 
-The whole design is shamelessly inspired from [remoteok.com](https://remoteok.com), not as polished, but good enough for a preview. I wanted to show it around to a few colleagues to gather some opinions, purchased the [ocamljobs.com](https://ocamljobs.com) domain (yes I got carried away, lesson learned: let's just host everything on [guillaumepetiot.com](https://guillaumepetiot.com) next time). The UX mainly got positive reviews so far. Yay!
+The whole design is shamelessly inspired from [remoteok.com](https://remoteok.com), not as polished, but good enough for a preview. I wanted to show it around to a few people to gather some opinions, purchased the [ocamljobs.com](https://ocamljobs.com) domain (yes I got carried away, lesson learned: let's just host everything on [guillaumepetiot.com](https://guillaumepetiot.com) next time). The UX mainly got positive reviews so far. Yay!
 
 ## What now?
 
