@@ -1,14 +1,17 @@
 body {
-  margin: 0 auto;
-  padding: 0 1em;
-  max-width: 700px;
-  background-color: #282c34;
-  color: #d9e4fe;
+  margin: 0;
+  padding: 0;
+  background-color: #1c1f20;
+  color: #abb3c7;
   font-family: Helvetica;
   font-size: 1.2em;
 }
 
 header {
+  margin: 0 auto 10px auto;
+  padding: 20px;
+  width: 100%;
+  background-color: #111;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-weight: bolder;
-  margin: 110px 0 70px 0;
+  margin: 80px 0 70px 0;
 }
 
 h2 {
@@ -29,7 +32,7 @@ h3 {
 }
 
 nav {
-  margin: 40px auto 0 auto;
+  margin: 0 auto;
   width: 70%;
   text-align: center;
 }
@@ -49,7 +52,6 @@ nav a {
   text-align: center;
   text-decoration: none;
   font-weight: bolder;
-  font-size: 1.4em;
   color: #bbb;
   margin: 12px 15px 7px;
   padding: 14px 10px;
@@ -62,8 +64,10 @@ nav a:hover {
 }
 
 main {
-  margin: 42px 0px;
+  margin: 20px auto 0 auto;
+  padding: 0 1em;
   line-height: 1.6;
+  max-width: 700px;
 }
 
 a {
@@ -71,6 +75,7 @@ a {
   padding-bottom: 2px;
   text-decoration: none;
   font-weight: bold;
+  opacity: 80%;
 }
 
 a:hover {
@@ -111,12 +116,13 @@ img {
 }
 
 footer {
-  width: 70%;
-  margin: 40px auto 0 auto;
-  padding-top: 32px;
+  width: 100%;
+  margin: 60px auto 0 auto;
+  padding: 30px 20px;
   text-align: center;
   font-size: .9em;
   color: #777;
+  background-color: #111;
 }
 
 footer ul {
@@ -143,11 +149,13 @@ article .meta {
 }
 
 .list-articles > li {
-  padding: 0;
+  padding: 20px;
   margin: 0;
   margin-bottom: 32px;
   display: flex;
   flex-direction: row;
+  background-color: #151717;
+  border-radius: 20px;
 }
 
 .list-articles > li > div.side {
@@ -262,14 +270,14 @@ article code {
 
 .tags-list a {
   text-decoration: none;
-  background-color: #222;
-  border: 2px solid transparent;
+  border: 2px solid #777;
   border-radius: 12px;
-  padding: 10px 14px;
+  padding: 6px 14px;
+  opacity: 60%;
 }
 
 .tags-list a:hover {
-  border: 2px solid #777;
+  border: 2px solid #888;
 }
 
 article .tags-list {
